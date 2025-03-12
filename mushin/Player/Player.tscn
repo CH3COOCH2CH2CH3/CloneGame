@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://cm4l2gpv4brl6" path="res://Image/character/Yellow Effect Bullet Impact Explosion 32x32.png" id="5_j23h2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0j2ni"]
+radius = 13.0
+height = 46.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v0k0e"]
 atlas = ExtResource("1_8g4oa")
@@ -395,13 +397,14 @@ z_index = 2
 script = ExtResource("1_6ysni")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_0j2ni")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-1, -16)
+position = Vector2(-1, -21)
+scale = Vector2(1.4375, 1.45833)
 sprite_frames = SubResource("SpriteFrames_1ylbe")
 animation = &"idle"
-frame_progress = 0.0316019
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2.6, 2.6)

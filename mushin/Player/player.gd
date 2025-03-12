@@ -5,6 +5,10 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
 
+var gravity = ProjectSettings.get_setting("physical/2d/default_gravity")
+@onready var anim = get_node("AnimatedSprite2D")
+
+
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
@@ -17,9 +21,23 @@ func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("ui_left", "ui_right")
-	if direction:
+	if direction == 1 or direction == -1 :
+		anim.flip_h = direction < 0
+
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+		#
+	if not is_on_floor(): 
+		anim.play("jump")
+		
+	elif direction == 1 or direction == -1:  
+		anim.play("run")
+	else:
+			anim.play("idle")
+		
 
 	move_and_slide()
+	
+	
+	
