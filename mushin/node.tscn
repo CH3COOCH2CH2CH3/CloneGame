@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://dttb0cvpfsuw2"]
+
+[ext_resource type="Texture2D" uid="uid://dfabflmal2a1o" path="res://Image/Ui/Logo1.png" id="1_sy5k4"]
+
+[node name="Node" type="Node"]
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 286.0
+offset_bottom = 116.0
+texture_normal = ExtResource("1_sy5k4")

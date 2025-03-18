@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=3 uid="uid://bu177paqchou0"]
+
+[ext_resource type="Texture2D" uid="uid://csk0ilqw3nqfa" path="res://Image/character/parry/1.png" id="1_j1fur"]
+[ext_resource type="Texture2D" uid="uid://osvjlpqwp4k6" path="res://Image/character/parry/2.png" id="2_wubgo"]
+[ext_resource type="Texture2D" uid="uid://bvb5rcd6e6jog" path="res://Image/character/parry/3.png" id="3_mexki"]
+[ext_resource type="Texture2D" uid="uid://bm6mxtse5et4v" path="res://Image/character/parry/4.png" id="4_slgvu"]
+[ext_resource type="Texture2D" uid="uid://cabcyddyes7df" path="res://Image/character/parry/5.png" id="5_oo2ck"]
+[ext_resource type="Texture2D" uid="uid://bu3h3vxch8ehr" path="res://Image/character/parry/6.png" id="6_hyxxr"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oxmyl"]
+radius = 13.0
+height = 48.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m3xt3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_j1fur")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_wubgo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_mexki")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_slgvu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_oo2ck")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_hyxxr")
+}],
+"loop": false,
+"name": &"parry",
+"speed": 5.0
+}]
+
+[node name="Parryy" type="Node2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_oxmyl")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(3, -16)
+scale = Vector2(0.172812, 0.220096)
+sprite_frames = SubResource("SpriteFrames_m3xt3")
+animation = &"parry"
+frame = 5
+frame_progress = 1.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
