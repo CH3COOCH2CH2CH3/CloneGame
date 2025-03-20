@@ -3,7 +3,6 @@ extends CharacterBody2D
 const SPEED = 220.0
 const JUMP_VELOCITY = -400.0
 
-# Hằng số dash
 const DASH_SPEED = 400.0
 const DASH_DURATION = 0.2
 
@@ -23,31 +22,25 @@ func _ready() -> void:
 	parry_anim.visible = false
 
 func _physics_process(delta: float) -> void:
-	# 1. Áp dụng trọng lực khi không đứng trên mặt đất
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
-	# 2. Nhảy – chỉ cho phép khi không đang parry hoặc dash
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor() and not is_parrying and not is_dashing:
 		velocity.y = JUMP_VELOCITY
 
-	# 3. Dash: kiểm tra input cho dash
 	if Input.is_action_just_pressed("ui_dash") and not is_attacking and not is_parrying and not is_dashing:
 		is_dashing = true
 		dash_timer = DASH_DURATION
-		anim.play("dash")  # Đảm bảo có animation "dash"
+		anim.play("dash")  
 		var dash_direction = Input.get_axis("ui_left", "ui_right")
 		if dash_direction == 0:
-			# Nếu không có input hướng, lấy hướng hiện tại dựa vào flip_h
 			dash_direction = -1 if anim.flip_h else 1
 		velocity.x = dash_direction * DASH_SPEED
 
-	# 4. Nếu đang dash thì cập nhật dash_timer và bỏ qua xử lý input di chuyển thông thường
 	if is_dashing:
 		dash_timer -= delta
 		if dash_timer <= 0:
 			is_dashing = false
-	# 5. Parry: chỉ thực hiện khi không đang attack, dash hoặc parry
 	elif Input.is_action_just_pressed("ui_parry") and not is_attacking and not is_parrying:
 		is_parrying = true
 		anim.stop()
@@ -55,7 +48,6 @@ func _physics_process(delta: float) -> void:
 		parry_anim.flip_h = anim.flip_h
 		parry_anim.visible = true
 		parry_anim.play("parry")
-	# 6. Xử lý di chuyển thông thường khi không ở trạng thái attack, parry hay dash
 	elif not is_attacking and not is_parrying:
 		var direction := Input.get_axis("ui_left", "ui_right")
 		if direction != 0:
@@ -72,7 +64,6 @@ func _physics_process(delta: float) -> void:
 			else:
 				anim.play("idle")
 
-	# 7. Tấn công: chỉ thực hiện khi không attack, parry hoặc dash
 	if Input.is_action_just_pressed("ui_attack") and not is_attacking and not is_parrying and not is_dashing:
 		is_attacking = true
 		anim.play("attack")
