@@ -1,0 +1,70 @@
+[gd_scene load_steps=13 format=3 uid="uid://bd17hy0bwyvik"]
+
+[ext_resource type="Texture2D" uid="uid://d2vl13wg2yned" path="res://joystick/right.png" id="1_lgyya"]
+[ext_resource type="Texture2D" uid="uid://ddxtoa44p5a15" path="res://joystick/left.png" id="2_hnieu"]
+[ext_resource type="Texture2D" uid="uid://hftl8makh1yu" path="res://joystick/atk.png" id="4_3486s"]
+[ext_resource type="Texture2D" uid="uid://d2lfht5l52sk8" path="res://joystick/nhay.png" id="5_ko8w0"]
+[ext_resource type="Texture2D" uid="uid://bfn8qb6mmxhvo" path="res://joystick/parry.png" id="6_0bpll"]
+[ext_resource type="Texture2D" uid="uid://bf7uhhyjp8rn0" path="res://joystick/resume.png" id="6_lgyya"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hnieu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xfwg0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3486s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ko8w0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0bpll"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wkoab"]
+
+[node name="Joystick" type="Node"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="CanvasLayer"]
+position = Vector2(-313, 107)
+scale = Vector2(3.25, 3.25)
+texture_normal = ExtResource("2_hnieu")
+shape = SubResource("RectangleShape2D_hnieu")
+action = "move_left"
+
+[node name="TouchScreenButton2" type="TouchScreenButton" parent="CanvasLayer"]
+position = Vector2(-231, 106)
+scale = Vector2(3.5, 3.1875)
+texture_normal = ExtResource("1_lgyya")
+shape = SubResource("RectangleShape2D_xfwg0")
+action = "move_right"
+
+[node name="TouchScreenButton3" type="TouchScreenButton" parent="CanvasLayer"]
+position = Vector2(257, 107)
+scale = Vector2(2.96875, 2.75)
+texture_normal = ExtResource("4_3486s")
+shape = SubResource("RectangleShape2D_3486s")
+action = "attack"
+
+[node name="TouchScreenButton4" type="TouchScreenButton" parent="CanvasLayer"]
+position = Vector2(278, 42)
+scale = Vector2(3.3125, 3.125)
+texture_normal = ExtResource("5_ko8w0")
+shape = SubResource("RectangleShape2D_ko8w0")
+action = "jump"
+
+[node name="TouchScreenButton5" type="TouchScreenButton" parent="CanvasLayer"]
+position = Vector2(187, 41)
+scale = Vector2(2.46875, 2.28125)
+texture_normal = ExtResource("6_0bpll")
+shape = SubResource("RectangleShape2D_0bpll")
+action = "parry"
+
+[node name="TouchScreenButton6" type="TouchScreenButton" parent="CanvasLayer"]
+position = Vector2(171, 130)
+scale = Vector2(3.5625, 2.8125)
+texture_normal = ExtResource("6_lgyya")
+shape = SubResource("RectangleShape2D_wkoab")
+action = "dash"
+
+[node name="Camera2D" type="Camera2D" parent="CanvasLayer"]
+z_index = 2
+zoom = Vector2(1.6, 1.6)

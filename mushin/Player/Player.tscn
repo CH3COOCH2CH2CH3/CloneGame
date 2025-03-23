@@ -1,19 +1,26 @@
-[gd_scene load_steps=79 format=3 uid="uid://nq4r3x7wj8nt"]
+[gd_scene load_steps=94 format=3 uid="uid://nq4r3x7wj8nt"]
 
 [ext_resource type="Script" uid="uid://s1gpoglw3tkm" path="res://Player/player.gd" id="1_6ysni"]
 [ext_resource type="Texture2D" uid="uid://1ox4n72hq0do" path="res://Image/character/ATTACK 1.png" id="1_8g4oa"]
 [ext_resource type="Texture2D" uid="uid://cw7if5t86fdip" path="res://Image/character/HURT.png" id="2_6ysni"]
 [ext_resource type="Texture2D" uid="uid://dyvn6vobda610" path="res://Image/character/Dash/1 (1).png" id="3_p7tob"]
 [ext_resource type="Texture2D" uid="uid://c76mqp7xnt2no" path="res://Image/character/IDLE.png" id="3_vlldt"]
+[ext_resource type="Texture2D" uid="uid://d2vl13wg2yned" path="res://joystick/right.png" id="3_x70vp"]
+[ext_resource type="Texture2D" uid="uid://ddxtoa44p5a15" path="res://joystick/left.png" id="3_xu7fl"]
+[ext_resource type="Texture2D" uid="uid://hftl8makh1yu" path="res://joystick/atk.png" id="4_78fhc"]
 [ext_resource type="Texture2D" uid="uid://cxdqgvod7u0d5" path="res://Image/character/Dash/2 (1).png" id="4_dm7nj"]
 [ext_resource type="Texture2D" uid="uid://da54vdu7rqr1a" path="res://Image/character/RUN.png" id="4_s1rgi"]
+[ext_resource type="Texture2D" uid="uid://d2lfht5l52sk8" path="res://joystick/nhay.png" id="5_4n5ed"]
 [ext_resource type="Texture2D" uid="uid://cqocvkmiklbwj" path="res://Image/character/Dash/3 (1).png" id="5_8sa4y"]
 [ext_resource type="Texture2D" uid="uid://cm4l2gpv4brl6" path="res://Image/character/Yellow Effect Bullet Impact Explosion 32x32.png" id="5_j23h2"]
 [ext_resource type="Texture2D" uid="uid://dga0m7tr6i6tw" path="res://Image/character/Dash/4 (1).png" id="6_3nb2p"]
+[ext_resource type="Texture2D" uid="uid://bfn8qb6mmxhvo" path="res://joystick/parry.png" id="6_yf47d"]
 [ext_resource type="Texture2D" uid="uid://4tgbwh0xtiod" path="res://Image/character/Dash/5 (1).png" id="7_d7xyo"]
+[ext_resource type="Texture2D" uid="uid://bf7uhhyjp8rn0" path="res://joystick/resume.png" id="7_jvfa1"]
 [ext_resource type="Texture2D" uid="uid://osvjlpqwp4k6" path="res://Image/character/parry/2.png" id="7_v0k0e"]
 [ext_resource type="Texture2D" uid="uid://bvb5rcd6e6jog" path="res://Image/character/parry/3.png" id="8_5wa8t"]
 [ext_resource type="Texture2D" uid="uid://18una3hn236f" path="res://Image/character/Dash/6 (1).png" id="8_evw08"]
+[ext_resource type="Texture2D" uid="uid://c3i74hafcyxjy" path="res://joystick/esc.png" id="8_ib3vm"]
 [ext_resource type="Texture2D" uid="uid://bm6mxtse5et4v" path="res://Image/character/parry/4.png" id="9_p7tob"]
 [ext_resource type="Texture2D" uid="uid://c6klvs1etaf8x" path="res://Image/character/death/1 (1).png" id="9_s0mko"]
 [ext_resource type="Texture2D" uid="uid://cabcyddyes7df" path="res://Image/character/parry/5.png" id="10_dm7nj"]
@@ -30,6 +37,20 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0j2ni"]
 radius = 13.0
 height = 46.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wo5nf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vtj8b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rqaa0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o1b5h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7w4lt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ww5s2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xw4su"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v0k0e"]
 atlas = ExtResource("1_8g4oa")
@@ -256,22 +277,22 @@ animations = [{
 "speed": 10.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 0.6,
 "texture": ExtResource("3_p7tob")
 }, {
-"duration": 1.0,
+"duration": 0.6,
 "texture": ExtResource("4_dm7nj")
 }, {
-"duration": 1.0,
+"duration": 0.6,
 "texture": ExtResource("5_8sa4y")
 }, {
-"duration": 1.0,
+"duration": 0.6,
 "texture": ExtResource("6_3nb2p")
 }, {
-"duration": 1.0,
+"duration": 0.6,
 "texture": ExtResource("7_d7xyo")
 }, {
-"duration": 1.0,
+"duration": 0.6,
 "texture": ExtResource("8_evw08")
 }],
 "loop": false,
@@ -490,27 +511,102 @@ animations = [{
 "speed": 8.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s0mko"]
+size = Vector2(126, 37)
+
 [node name="CharacterBody2D" type="CharacterBody2D"]
 z_index = 2
 script = ExtResource("1_6ysni")
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 2
 position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_0j2ni")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+z_index = 2
 zoom = Vector2(1.6, 1.6)
 
+[node name="TouchScreenButton" type="TouchScreenButton" parent="Camera2D"]
+z_index = 7
+position = Vector2(-255, 61)
+scale = Vector2(5, 5)
+texture_normal = ExtResource("3_x70vp")
+shape = SubResource("RectangleShape2D_wo5nf")
+action = "move_right"
+
+[node name="TouchScreenButton2" type="TouchScreenButton" parent="Camera2D"]
+z_index = 5
+position = Vector2(-347, 62)
+scale = Vector2(4.5, 4.875)
+texture_normal = ExtResource("3_xu7fl")
+shape = SubResource("RectangleShape2D_vtj8b")
+action = "move_left"
+
+[node name="TouchScreenButton3" type="TouchScreenButton" parent="Camera2D"]
+position = Vector2(255, 107)
+scale = Vector2(3.375, 2.90625)
+texture_normal = ExtResource("4_78fhc")
+shape = SubResource("RectangleShape2D_rqaa0")
+action = "attack"
+
+[node name="TouchScreenButton4" type="TouchScreenButton" parent="Camera2D"]
+position = Vector2(279, 52)
+scale = Vector2(3.5625, 3.125)
+texture_normal = ExtResource("5_4n5ed")
+shape = SubResource("RectangleShape2D_o1b5h")
+action = "jump"
+
+[node name="TouchScreenButton5" type="TouchScreenButton" parent="Camera2D"]
+position = Vector2(179, 55)
+scale = Vector2(2.8125, 2.34375)
+texture_normal = ExtResource("6_yf47d")
+shape = SubResource("RectangleShape2D_7w4lt")
+action = "parry"
+
+[node name="TouchScreenButton6" type="TouchScreenButton" parent="Camera2D"]
+position = Vector2(151, 133)
+scale = Vector2(5.875, 2.9375)
+texture_normal = ExtResource("7_jvfa1")
+shape = SubResource("RectangleShape2D_ww5s2")
+action = "dash"
+
+[node name="TouchScreenButton7" type="TouchScreenButton" parent="Camera2D"]
+position = Vector2(-345, -192)
+scale = Vector2(2.875, 2.75)
+texture_normal = ExtResource("8_ib3vm")
+shape = SubResource("RectangleShape2D_xw4su")
+action = "pause"
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 2
 position = Vector2(0, -20)
 scale = Vector2(1.38623, 1.36328)
 sprite_frames = SubResource("SpriteFrames_1ylbe")
-animation = &"idle"
+animation = &"dash"
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+z_index = 2
 position = Vector2(2, -13)
 scale = Vector2(0.224903, 0.249839)
 sprite_frames = SubResource("SpriteFrames_7v5gs")
 animation = &"parry"
 frame = 4
 frame_progress = 1.0
+
+[node name="Area2D" type="Area2D" parent="."]
+z_index = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+z_index = 2
+position = Vector2(7, -4.5)
+shape = SubResource("RectangleShape2D_s0mko")
+
+[node name="Hp" type="Label" parent="."]
+offset_left = -18.0
+offset_top = -46.0
+offset_right = 22.0
+offset_bottom = -23.0
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
